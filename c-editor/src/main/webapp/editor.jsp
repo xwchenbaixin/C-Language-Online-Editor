@@ -33,94 +33,32 @@
 
 
 <!-- 菜单文件 -->
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-
-<style>
-	.CodeMirror{
-		width:100%;height:100%;
-	}
-	
-	body{
-		width:100%;
-		height:100%;
-		padding:0;
-		margin:0;
-	}
-	html{
-		width:100%;
-		height:100%;
-	}
-	.question{
-		position:relative;
-		background-color:gray;
-		float:left;
-		height:100%;
-		width:40%;
-	}
-	.editor-div{
-		width:60%;
-		height:100%;
-		float:left;
-	}
-	.head{
-		height:35px;
-		width:100%;
-		position:absolute;
-		background: #4B4F55;
-    	border-bottom: 1px solid #353A40;
-	}
-	.content{
-		height:100%;
-		width:100%;
-		padding-top:35px;
-		padding-bottom:35px;
-		background-color:white;
-		overflow-x:hidden;
-		overflow-y:auto;
-		box-sizing:border-box;  
-		-moz-box-sizing:border-box; /* Firefox */  
-		-webkit-box-sizing:border-box; /* Safari */  
-	}
-	.result{
-		height:35px;
-		width:100%;
-		position:absolute;
-		bottom:0px;
-		background-color:#40a7ff;
-	}
-	.btn-warning{
-		background-color:#40a7ff;
-		border-color:#40a7ff;
-	}
-	.save,.submit,.compile{
-		float:right;
-	}
-</style>
+<link rel="stylesheet" href="css/editor.css" media="screen" type="text/css" />
 
 </head>
 <body >
-<div class='question' id='question'> 
+<div class='topic' id='topic'> 
 	<div class='head' id='head'>
-		<input type='button' class='btn btn-warning' value="题目集"/>
-		<input type='button' class='btn btn-warning' value="题目信息"/>
-		<input type='button' class='btn btn-warning' value="搜索"/>
+		<input type='button' id='topic-set' class='btn btn-warning' value="题目集"/>
+		<input type='button' id='topic-detail' class='btn btn-warning' value="题目信息"/>
+		<input type='button' id='search' class='btn btn-warning' value="搜索"/>
 		
-		<input type='button' class='btn btn-success submit' value="提交"/>
-		<input type='button' class='btn btn-warning compile' value="运行"/>	
-		<input type='button' class='btn btn-warning save' value="保存"/>	
+		<input type='button' id='submit' class='btn btn-warning submit' value="提交"/>
+		<input type='button' id='compile' class='btn btn-warning compile' value="运行"/>	
+		<input type='button' id='save' class='btn btn-warning save' value="保存"/>	
 	</div>
-	<div class='content' id='content'>
+	<div class='content' id='topic_set_content'>
 	    <div class="menu__body">
 	      <ul class="nav">
-	        <li class="nav__item">
-	          <a href="#" class="nav__item-link is-active">
+	        <li class="nav__item" onclick="cg(this)"> 
+	          <a href="#" class="nav__item-link is-active" >
 	            <i class="fa fa-envelope nav__item-icon"></i>
 	            <span class="nav__item-text">News</span>
 	            <span class="badge badge--warning">32</span>
+	            <span style="float:right;">总提交:</span>
 	          </a>   
 	        </li>
-	        <li class="nav__item">
+	        <li class="nav__item" onclick="questionDetail(1)">
 	          <a href="#" class="nav__item-link">
 	            <i class="fa fa-flag nav__item-icon"></i>
 	            <span class="nav__item-text">Priority</span>
@@ -148,17 +86,25 @@
 	            <span class="badge">9</span>
 	          </a>   
 	        </li>
-	          <li class="nav__item">
-	          <a href="#" class="nav__item-link">
-	            <span class="nav__item-text">Show all</span>
-	          </a>   
-	        </li>
-	      </ul>
+	      
 	    </div>
 	</div>
-	<div class='result' id='result'>
-		
+	<div class='content' id='topic_detail_content' style='display:none'>
+		<div class='result rtDetail' id='rtDetail'>
+			<div style="height:31px;background:#40a7ff;	">
+				<input type="button" class="btn rtClose" id="rtClose" value="关闭">
+			</div>
+			<div>
+			</div>
+		</div>
+		<div class='result' id='result'>
+			<input type="button" class="btn rtClose" style="width:100%;" value="显示结果"  id="rtShow">
+		</div>
 	</div>
+	<div class='content' id='search_content'  style='display:none'>
+	</div>
+	
+	
 </div>
 <div class='editor-div' id="editor-div">
 	<textarea class="form-control" id="codeEditor" name="codeEditor"></textarea>
@@ -179,5 +125,74 @@ var editor = CodeMirror.fromTextArea(document.getElementById("codeEditor"), {
 	//readOnly: true,        //只读
 	
 });
+function cg(a){
+	if($(a).next().css("display")=="none")
+		$(a).nextAll().show();
+	else
+		$(a).nextAll().hide();
+}
+function questionDetail(id){
+	
+}
+function rtClose(){
+	$("#rtDetail").hide(100);
+}
+
+$(document).ready(function(){
+	$("#topic-set").click(function(){
+		$("#topic_set_content").css('display','block');
+		$("#topic_detail_content").css('display','none');
+		$("#search_content").css('display','none');
+		
+		$(this).css('color','#40a7ff');
+		$("#topic-detail").css('color','white');
+		$("#search").css('color','white');
+	})
+	$("#topic-detail").click(function(){
+		$("#topic_set_content").css('display','none');
+		$("#topic_detail_content").css('display','block');
+		$("#search_content").css('display','none');
+		
+		$("#topic-set").css('color','white');
+		$(this).css('color','#40a7ff');
+		$("#search").css('color','white');
+	})
+	$("#search").click(function(){
+		$("#topic_set_content").css('display','none');
+		$("#topic_detail_content").css('display','none');
+		$("#search_content").css('display','block');
+		
+		$("#topic-set").css('color','white');
+		$("#topic-detail").css('color','white');
+		$(this).css('color','#40a7ff');
+	})
+	
+	$("#rtClose").click(function(){
+		$("#rtDetail").hide(100);
+	})
+	
+	$("#rtShow").click(function(){
+		$("#rtDetail").show(100);
+	})
+	$("#compile").click(function(){
+		$.ajax({
+					type : "POST", //发送是以POST还是GET
+					url : "/c-editor/cEditor/compile", //发送的地址
+					dataType : "json", //传输数据的格式
+					data : {
+						"code":editor.getValue()
+					}, //传输的数据
+					//成功的回调函数
+					success : function(data) {
+						console.log(data)
+					},
+					//失败的回调函数
+					error : function() {
+						console.log("error")
+					}
+			})
+		})
+
+	})
 </script>
 </html>
