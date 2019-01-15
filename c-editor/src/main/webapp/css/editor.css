@@ -84,6 +84,10 @@ body {
 	position: relative;
 }
 
+.nav__topic__title{
+	width: 70%;
+}
+
 .nav__item-link {
 	padding: 10px 15px;
 	text-decoration: none;
@@ -190,11 +194,10 @@ html {
 .content {
 	height: 100%;
 	width: 100%;
-	padding-top: 35px;
-	padding-bottom: 35px;
+	padding:35px 0px 35px 0px;
 	background-color: white;
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: hidden;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box; /* Firefox */
 	-webkit-box-sizing: border-box; /* Safari */
@@ -236,7 +239,7 @@ html {
 	outline: none;
 }
 
-.btn:hover, .btn:focus, .btn.focus {
+.btn:hover {
 	color: #40a7ff;
 	text-decoration: none;
 }
@@ -260,6 +263,11 @@ html {
 	position: absolute;
 	bottom: 35px;
 	background-color: white;
+	display:none;
+	padding-top:35px;
+	box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .rtClose {
@@ -274,6 +282,50 @@ html {
 .rtClose:focus{
 	color:white;
 }
-#topic-set{
+#topic-detail{
 	color:#40a7ff;
+}
+.compiled{
+	color:rgb(64, 167, 255);
+}
+.input{
+	height:50%;
+	width:100%;
+	padding:5px 5px 5px 5px;
+	resize:none;
+	font-size:15px;
+	overflow-y:auto;
+	border:none;
+	box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+textarea{
+	resize:none;
+}
+.output{
+	height:50%;
+	padding:5px;
+	overflow-y:auto;
+	width:100%;
+	resize:none;
+	font-size:15px;
+	box-sizing: border-box; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color:#dbdbdb;
+}
+.closeBar{
+	height: 31px;
+    background: #40a7ff;
+    top:0px;
+    width: 100%;
+    position: absolute;
+}
+#topic_detail{
+	width:96%;
+	height:96%;
+	padding:2%;
+	border:0;
+	resize:none;
 }

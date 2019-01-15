@@ -6,10 +6,13 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cbx.editor.beans.Topic;
+import com.cbx.editor.beans.User;
 import com.cbx.editor.service.TopicService;
 
 @Controller
@@ -25,14 +28,18 @@ public class TopicController {
 	}
 	
 	@RequestMapping("insert")
-	public Map<String, Object> insert(Topic tp){
+	public void insert(@RequestBody Topic top){
+		topicService.insert(topicService.createid(), 
+				top.getTitle(), 
+				top.getQuestion(), 
+				top.getAnswer(),
+				top.getTopic_set(),
+				1);
 		
-		topicService.insert(tp);
-		
-		Map<String,Object> res=null;
-		return res;
 	}
 	
+
+
 	public Map<String, Object> update(Topic tp){
 		Map<String,Object> res=null;
 		return res;

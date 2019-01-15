@@ -7,59 +7,103 @@ public class Topic {
 
     private String title;
 
-    private Integer topicSet;
+    private Integer topic_set;
 
-    private Integer userId;
-
-    private Date time;
+    private Integer user_id;
+    
+    private String question;
+    
+    private String answer;
+    
+	private Date time;
 
     private Integer state;
+    
+    private Integer submit;
+    
+    private String knowledge;
+    
+    public Integer getSubmit() {
+		return submit;
+	}
 
+	public void setSubmit(Integer submit) {
+		this.submit = submit;
+	}
+
+	public String getKnowledge() {
+		return knowledge;
+	}
+
+	public void setKnowledge(String knowledge) {
+		this.knowledge = knowledge;
+	}
+
+    
     public Integer getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public Integer getTopicSet() {
-        return topicSet;
-    }
+	public Integer getTopic_set() {
+		return topic_set;
+	}
 
-    public void setTopicSet(Integer topicSet) {
-        this.topicSet = topicSet;
-    }
+	public void setTopic_set(Integer topic_set) {
+		this.topic_set = topic_set;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public Integer getUser_id() {
+		return user_id;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public String getQuestion() {
+		return question;
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public void setQuestion(String question) {
+		this.question = question;
+	}
 
-    public Integer getState() {
-        return state;
-    }
+	public String getAnswer() {
+		return answer;
+	}
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+
+
 }

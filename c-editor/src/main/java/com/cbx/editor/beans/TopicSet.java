@@ -7,13 +7,43 @@ public class TopicSet {
 
     private String name;
 
-    private Integer userId;
+    private Integer user_id;
 
     private Date time;
 
     private Integer state;
 
-    public Integer getId() {
+    private Integer submit;
+    
+    private String knowledge;
+
+    
+    
+    public Integer getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+
+	public Integer getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(Integer submit) {
+		this.submit = submit;
+	}
+
+	public String getKnowledge() {
+		return knowledge;
+	}
+
+	public void setKnowledge(String knowledge) {
+		this.knowledge = knowledge;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -27,14 +57,6 @@ public class TopicSet {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     public Date getTime() {

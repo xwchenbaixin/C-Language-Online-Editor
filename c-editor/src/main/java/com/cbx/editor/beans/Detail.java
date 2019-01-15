@@ -5,19 +5,29 @@ import java.util.Date;
 public class Detail {
     private Integer id;
 
-    private Integer topId;
+    private Integer topic_id;
 
-    private Integer userId;
+    private Integer user_id;
 
-    private Float userScore;
+    private Double user_score;
 
     private Date time;
 
     private Integer state;
 
-    private String userAnswer;
+    private String user_answer;
 
-    public Integer getId() {
+    private String user_code;
+    
+    public String getUser_code() {
+		return user_code;
+	}
+
+	public void setUser_code(String user_code) {
+		this.user_code = user_code;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -25,31 +35,41 @@ public class Detail {
         this.id = id;
     }
 
-    public Integer getTopId() {
-        return topId;
-    }
+    public Integer getTopic_id() {
+		return topic_id;
+	}
 
-    public void setTopId(Integer topId) {
-        this.topId = topId;
-    }
+	public void setTopic_id(Integer topic_id) {
+		this.topic_id = topic_id;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public Integer getUser_id() {
+		return user_id;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
 
-    public Float getUserScore() {
-        return userScore;
-    }
 
-    public void setUserScore(Float userScore) {
-        this.userScore = userScore;
-    }
 
-    public Date getTime() {
+	public Double getUser_score() {
+		return user_score;
+	}
+
+	public void setUser_score(Double user_score) {
+		this.user_score = user_score;
+	}
+
+	public String getUser_answer() {
+		return user_answer;
+	}
+
+	public void setUser_answer(String user_answer) {
+		this.user_answer = user_answer;
+	}
+
+	public Date getTime() {
         return time;
     }
 
@@ -65,11 +85,5 @@ public class Detail {
         this.state = state;
     }
 
-    public String getUserAnswer() {
-        return userAnswer;
-    }
-
-    public void setUserAnswer(String userAnswer) {
-        this.userAnswer = userAnswer == null ? null : userAnswer.trim();
-    }
+   
 }

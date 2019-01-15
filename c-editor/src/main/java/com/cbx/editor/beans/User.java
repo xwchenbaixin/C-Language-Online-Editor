@@ -9,7 +9,7 @@ public class User {
 
     private String phone;
 
-    private String email;
+	private String email;
 
     private String password;
 
@@ -21,7 +21,36 @@ public class User {
 
     private Integer state;
 
-    public Integer getId() {
+    private Integer student_id;
+    
+    private Integer classes;
+
+
+	public Integer getClasses() {
+		return classes;
+	}
+
+	public void setClasses(Integer classes) {
+		this.classes = classes;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Integer getStudent_id() {
+		return student_id;
+	}
+
+	public void setStudent_id(Integer student_id) {
+		this.student_id = student_id;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -37,15 +66,9 @@ public class User {
         this.username = username == null ? null : username.trim();
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
 
-    public String getEmail() {
+	public String getEmail() {
         return email;
     }
 

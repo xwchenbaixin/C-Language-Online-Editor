@@ -16,9 +16,8 @@ public class TopicService {
 	@Autowired
 	private TopicDao topicDao;
 	
-	public void insert(Topic tp) {
-		// TODO Auto-generated method stub
-		topicDao.insert(tp);
+	public void insert(int id,String title,String question,String answer,int topic_set,int user_id) {
+		topicDao.insert(id,title,question,answer,topic_set,user_id);
 	}
 
 	public Map<String, Object> listData() {
@@ -26,6 +25,12 @@ public class TopicService {
 		Map<String,Object> res=new HashMap<String, Object>();
 		res.put("data", topicDao.listData());
 		return res;
+	}
+	
+	public int createid() {
+		int id;
+		id=topicDao.maxid();
+		return (id+1);
 	}
 
 }
